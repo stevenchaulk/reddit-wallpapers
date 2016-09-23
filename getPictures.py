@@ -184,6 +184,7 @@ if __name__ == "__main__":
 
     print("\n" + "Set image as desktop background: " + file)
 
+    # Useful for command line
     if HANG_FLAG:
         print("\nPress Enter/Return key to end program.")
         input()
