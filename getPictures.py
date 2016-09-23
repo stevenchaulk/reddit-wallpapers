@@ -13,13 +13,21 @@ import config
 import imgTable
 import ImgParser as IP
 
+"""
+picSet - a set of image URL's
+picLoc - the directory where the images will be saved 
+opener - the URLOpener used to retrieve images
+
+Takes a set of image URL's and downloads them.
+Also records data about what is saved in a database.
+"""
 def downloadSet(picSet, picLoc, opener):
     pBkSl = re.compile("[/]")
     pQu = re.compile("[?]")
     errors = 0
     downloads = 0
     for picURL in picSet:
-        for match in pQu.finditer(picURL):  # Remove everything after path to file
+        for match in pQu.finditer(picURL):  # Remove everything after path to file in the URL
             index = match.start()
             picURL = picURL[0:index]
         for match in pBkSl.finditer(picURL):  # Get position of last occurance of '/'
